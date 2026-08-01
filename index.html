@@ -426,51 +426,9 @@ href="https://t.me/StefLovesMilana"
 <br><br>
 
 
-
-<button class="answerButton" onclick="answer('NU ITI DAU 😭')">
-
-NU ITI DAU 😭
-
-</button>
-
-
-
-<button class="answerButton" onclick="answer('SI AI AHUIT 😂')">
-
-SI AI AHUIT 😂
-
-</button>
-
-
-
-<button class="answerButton" onclick="answer('ITI DAU ❤️')">
-
-ITI DAU ❤️
-
-</button>
-
-
-`;
-
-
-
-},6000);
-
-
-
-}
-
-);
-
-
-
-
-
-
-
 function answer(choice){
-  
-  fetch("https://milana06.gujastefan40.workers.dev/", {
+
+fetch("https://milana06.gujastefan40.workers.dev/", {
 
 method:"POST",
 
@@ -487,51 +445,43 @@ answer:choice
 });
 
 
-
 if(choice==="NU ITI DAU 😭"){
 
-
 message.innerHTML=
 
 `
 
-ponel 😭❤️
+PONEL 😭❤️
 
 <br>
-
-Nota ramane ∞/10 oricum
+  
+VSEO RAVNO ESTI ∞/10
 
 `;
-
 
 }
 
 
 
-
-if(choice==="SI AI AHUIT "){
-
+if(choice==="SI AI AHUIT 😂"){
 
 message.innerHTML=
 
 `
 
-AM AUZIT ❤️
+PONEL
 
 <br>
 
-Nota ramane ∞/10 oricum
+VSEO RAVNO ESTI ∞/10
 
 `;
 
-
 }
-
 
 
 
 if(choice==="ITI DAU ❤️"){
-
 
 message.innerHTML=
 
@@ -544,6 +494,8 @@ RASPUNS CORECT DETECTAT ✅❤️
 Multumesc ZAYA <3
 
 `;
+
+}
 
 
 }
