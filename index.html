@@ -469,6 +469,22 @@ ITI DAU ❤️
 
 
 function answer(choice){
+  
+  fetch("https://milana06.gujastefan40.workers.dev/", {
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+answer:choice
+
+})
+
+});
 
 
 
