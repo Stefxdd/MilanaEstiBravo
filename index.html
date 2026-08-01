@@ -253,7 +253,7 @@ transform:scale(1.2);
 
 
 <body>
-<video
+  <video
 
 id="finalVideo"
 
@@ -300,33 +300,22 @@ NOTA FINALĂ 😭
 
 
 </div>
-
-
-
-
 <script>
 
 
 const video =
-
 document.getElementById("finalVideo");
 
 
-
 const ratingScreen =
-
 document.getElementById("ratingScreen");
 
 
-
 const rating =
-
 document.getElementById("rating");
 
 
-
 const message =
-
 document.getElementById("message");
 
 
@@ -346,11 +335,10 @@ ratingScreen.style.display="flex";
 
 requestAnimationFrame(()=>{
 
-
 ratingScreen.classList.add("show");
 
-
 });
+
 
 
 
@@ -371,6 +359,7 @@ message.innerHTML=
 
 
 
+
 setTimeout(()=>{
 
 
@@ -380,6 +369,7 @@ message.innerHTML=
 
 
 },4000);
+
 
 
 
@@ -426,14 +416,57 @@ href="https://t.me/StefLovesMilana"
 <br><br>
 
 
+<button class="answerButton" onclick="answer('NU ITI DAU 😭')">
+
+NU ITI DAU 😭
+
+</button>
+
+
+<button class="answerButton" onclick="answer('SI AI AHUIT 😂')">
+
+SI AI AHUIT 😂
+
+</button>
+
+
+<button class="answerButton" onclick="answer('ITI DAU ❤️')">
+
+ITI DAU ❤️
+
+</button>
+
+
+`;
+
+
+
+},6000);
+
+
+
+}
+
+);
+
+
+
+
+
+
+
+
 function answer(choice){
+
 
 fetch("https://milana06.gujastefan40.workers.dev/", {
 
 method:"POST",
 
 headers:{
+
 "Content-Type":"application/json"
+
 },
 
 body:JSON.stringify({
@@ -445,7 +478,12 @@ answer:choice
 });
 
 
+
+
+
+
 if(choice==="NU ITI DAU 😭"){
+
 
 message.innerHTML=
 
@@ -454,7 +492,7 @@ message.innerHTML=
 PONEL 😭❤️
 
 <br>
-  
+
 VSEO RAVNO ESTI ∞/10
 
 `;
@@ -465,11 +503,12 @@ VSEO RAVNO ESTI ∞/10
 
 if(choice==="SI AI AHUIT 😂"){
 
+
 message.innerHTML=
 
 `
 
-PONEL
+PONEL 😂
 
 <br>
 
@@ -481,7 +520,9 @@ VSEO RAVNO ESTI ∞/10
 
 
 
+
 if(choice==="ITI DAU ❤️"){
+
 
 message.innerHTML=
 
@@ -498,12 +539,8 @@ Multumesc ZAYA <3
 }
 
 
-}
-
-
 
 }
-
 
 
 </script>
