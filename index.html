@@ -13,9 +13,7 @@
 
 
 *{
-
 box-sizing:border-box;
-
 }
 
 
@@ -46,7 +44,6 @@ font-family:Arial,sans-serif;
 
 
 
-
 video{
 
 width:90%;
@@ -58,7 +55,6 @@ border-radius:15px;
 box-shadow:0 0 30px rgba(255,80,160,.8);
 
 }
-
 
 
 
@@ -104,8 +100,6 @@ transition:opacity 1s ease;
 
 
 
-
-
 #ratingScreen.show{
 
 display:flex;
@@ -113,8 +107,6 @@ display:flex;
 opacity:1;
 
 }
-
-
 
 
 
@@ -134,8 +126,6 @@ text-shadow:
 0 0 30px #ff3e96;
 
 }
-
-
 
 
 
@@ -165,8 +155,6 @@ color .5s;
 
 
 
-
-
 #message{
 
 min-height:35px;
@@ -178,8 +166,6 @@ font-size:clamp(18px,5vw,30px);
 color:#ffd0e7;
 
 }
-
-
 
 
 
@@ -207,8 +193,6 @@ box-shadow:0 0 20px #ff3e96;
 
 
 
-
-
 .answerButton{
 
 margin:5px;
@@ -231,8 +215,6 @@ cursor:pointer;
 
 
 
-
-
 .finalScore{
 
 color:#ffcf4d !important;
@@ -242,8 +224,6 @@ transform:scale(1.15);
 animation:pulse 1s infinite alternate;
 
 }
-
-
 
 
 
@@ -267,15 +247,12 @@ transform:scale(1.2);
 }
 
 
-
 </style>
 
 </head>
 
 
 <body>
-
-
 <video
 
 id="finalVideo"
@@ -286,17 +263,16 @@ playsinline
 
 >
 
-
 <source
 
 src="Forest.mp4"
 
 type="video/mp4"
 
-/>
-
+>
 
 </video>
+
 
 
 <div id="ratingScreen">
@@ -324,22 +300,33 @@ NOTA FINALĂ 😭
 
 
 </div>
+
+
+
+
 <script>
 
 
 const video =
+
 document.getElementById("finalVideo");
 
 
+
 const ratingScreen =
+
 document.getElementById("ratingScreen");
 
 
+
 const rating =
+
 document.getElementById("rating");
 
 
+
 const message =
+
 document.getElementById("message");
 
 
@@ -347,78 +334,73 @@ document.getElementById("message");
 
 
 video.addEventListener(
+
 "ended",
+
 function(){
 
 
-ratingScreen.style.display =
-"flex";
+ratingScreen.style.display="flex";
 
 
 
-requestAnimationFrame(
-function(){
+requestAnimationFrame(()=>{
 
-ratingScreen.classList.add(
-"show"
-);
 
-}
+ratingScreen.classList.add("show");
 
-);
+
+});
 
 
 
 
 
-setTimeout(
-function(){
+setTimeout(()=>{
 
 
-message.innerHTML =
+message.innerHTML=
+
 "STAI OLEACAAA 🤔";
 
 
-},
-2000
-);
+},2000);
 
 
 
 
 
-setTimeout(
-function(){
+
+setTimeout(()=>{
 
 
-message.innerHTML =
+message.innerHTML=
+
 "Recalculăm nota... ⏳";
 
 
-},
-4000
-);
+},4000);
 
 
 
 
 
-setTimeout(
-function(){
 
 
-rating.innerHTML =
+setTimeout(()=>{
+
+
+rating.innerHTML=
+
 "∞/10 ❤️";
 
 
-rating.classList.add(
-"finalScore"
-);
+
+rating.classList.add("finalScore");
 
 
 
-
-message.innerHTML =
+message.innerHTML=
 
 `
 
@@ -472,9 +454,8 @@ ITI DAU ❤️
 
 
 
-},
-6000
-);
+},6000);
+
 
 
 }
@@ -491,10 +472,10 @@ function answer(choice){
 
 
 
-if(choice === "NU ITI DAU 😭"){
+if(choice==="NU ITI DAU 😭"){
 
 
-message.innerHTML =
+message.innerHTML=
 
 `
 
@@ -504,24 +485,18 @@ HAHA NU AI SCAPAT 😭❤️
 
 Nota ramane ∞/10 oricum
 
-<br><br>
-
-<button class="answerButton" onclick="location.reload()">
-
-Mai incearca 😂
-
-</button>
-
 `;
+
 
 }
 
 
 
-if(choice === "SI AI AHUIT 😂"){
+
+if(choice==="SI AI AHUIT 😂"){
 
 
-message.innerHTML =
+message.innerHTML=
 
 `
 
@@ -529,18 +504,20 @@ AM AUZIT 😂❤️
 
 <br>
 
-Dar tot ramai 1000/10
+Dar tot esti 1000/10
 
 `;
+
 
 }
 
 
 
-if(choice === "ITI DAU ❤️"){
+
+if(choice==="ITI DAU ❤️"){
 
 
-message.innerHTML =
+message.innerHTML=
 
 `
 
@@ -552,10 +529,13 @@ Multumesc ZAYA 🥹
 
 `;
 
+
 }
 
 
+
 }
+
 
 
 </script>
