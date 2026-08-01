@@ -1,252 +1,566 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESTI CEA MAI BRAVO ❤️</title>
 
-  <style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    *{
-      box-sizing:border-box;
-    }
+<title>ESTI CEA MAI BRAVO ❤️</title>
 
-    body{
-      margin:0;
-      min-height:100vh;
-      background-image:url('IMG_9350.jpg');
-      background-size:180px;
-      background-repeat:repeat;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-      font-family:Arial,sans-serif;
-    }
 
-    video{
-      width:90%;
-      max-width:700px;
-      border-radius:15px;
-      box-shadow:0 0 30px rgba(255,80,160,.8);
-    }
+<style>
 
-    #ratingScreen{
-      position:fixed;
-      inset:0;
 
-      display:none;
+*{
 
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
+box-sizing:border-box;
 
-      text-align:center;
+}
 
-      color:white;
 
-      background:
-      radial-gradient(
-        circle at top,
-        #5f1b75,
-        #08030d 75%
-      );
 
-      z-index:100;
+body{
 
-      opacity:0;
+margin:0;
 
-      transition:opacity 1s ease;
-    }
+min-height:100vh;
 
-    #ratingScreen.show{
-      display:flex;
-      opacity:1;
-    }
+background-image:url('IMG_9350.jpg');
 
-    #ratingTitle{
-      margin:0 0 20px;
+background-size:180px;
 
-      color:#ff9acc;
+background-repeat:repeat;
 
-      font-size:clamp(30px,8vw,60px);
+display:flex;
 
-      text-shadow:
-      0 0 15px #ff3e96,
-      0 0 30px #ff3e96;
-    }
+justify-content:center;
 
-    #rating{
-      font-size:clamp(60px,20vw,150px);
+align-items:center;
 
-      font-weight:bold;
+overflow:hidden;
 
-      color:#ff4e9d;
+font-family:Arial,sans-serif;
 
-      text-shadow:
-      0 0 20px #ff3e96,
-      0 0 50px #ff3e96;
+}
 
-      transition:
-      transform .5s,
-      color .5s;
-    }
 
-    #message{
-      min-height:35px;
 
-      margin-top:20px;
 
-      font-size:clamp(18px,5vw,30px);
+video{
 
-      color:#ffd0e7;
-    }
+width:90%;
 
-    .finalScore{
-      color:#ffcf4d !important;
+max-width:700px;
 
-      transform:scale(1.15);
+border-radius:15px;
 
-      animation:pulse 1s infinite alternate;
-    }
+box-shadow:0 0 30px rgba(255,80,160,.8);
 
-    @keyframes pulse{
+}
 
-      from{
-        transform:scale(1);
-      }
 
-      to{
-        transform:scale(1.2);
-      }
 
-    }
 
-  </style>
+#ratingScreen{
+
+position:fixed;
+
+inset:0;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+color:white;
+
+
+background:
+
+radial-gradient(
+
+circle at top,
+
+#5f1b75,
+
+#08030d 75%
+
+);
+
+
+z-index:100;
+
+opacity:0;
+
+transition:opacity 1s ease;
+
+}
+
+
+
+
+
+#ratingScreen.show{
+
+display:flex;
+
+opacity:1;
+
+}
+
+
+
+
+
+#ratingTitle{
+
+margin:0 0 20px;
+
+color:#ff9acc;
+
+font-size:clamp(30px,8vw,60px);
+
+
+text-shadow:
+
+0 0 15px #ff3e96,
+
+0 0 30px #ff3e96;
+
+}
+
+
+
+
+
+#rating{
+
+font-size:clamp(60px,20vw,150px);
+
+font-weight:bold;
+
+color:#ff4e9d;
+
+
+text-shadow:
+
+0 0 20px #ff3e96,
+
+0 0 50px #ff3e96;
+
+
+transition:
+
+transform .5s,
+
+color .5s;
+
+}
+
+
+
+
+
+#message{
+
+min-height:35px;
+
+margin-top:20px;
+
+font-size:clamp(18px,5vw,30px);
+
+color:#ffd0e7;
+
+}
+
+
+
+
+
+#telegramButton{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:15px 30px;
+
+background:#e63d8f;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:30px;
+
+font-size:22px;
+
+box-shadow:0 0 20px #ff3e96;
+
+}
+
+
+
+
+
+.answerButton{
+
+margin:5px;
+
+padding:12px 18px;
+
+border:none;
+
+border-radius:25px;
+
+background:#ff4e9d;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+.finalScore{
+
+color:#ffcf4d !important;
+
+transform:scale(1.15);
+
+animation:pulse 1s infinite alternate;
+
+}
+
+
+
+
+
+@keyframes pulse{
+
+
+from{
+
+transform:scale(1);
+
+}
+
+
+to{
+
+transform:scale(1.2);
+
+}
+
+
+}
+
+
+
+</style>
 
 </head>
 
+
 <body>
 
+
 <video
+
 id="finalVideo"
+
 controls
+
 playsinline
 
 >
 
-```
+
 <source
-  src="Forest.mp4"
-  type="video/mp4"
->
-```
 
-  </video>
+src="Forest.mp4"
 
-  <div id="ratingScreen">
+type="video/mp4"
 
-```
+/>
+
+
+</video>
+
+
+<div id="ratingScreen">
+
+
 <h1 id="ratingTitle">
 
-  NOTA FINALĂ 😭
+NOTA FINALĂ 😭
 
 </h1>
 
 
+
 <div id="rating">
 
-  0/10
+0/10
 
 </div>
+
 
 
 <div id="message">
 
 </div>
-```
-
-  </div>
-
-  <script>
-
-    const video =
-    document.getElementById("finalVideo");
-
-    const ratingScreen =
-    document.getElementById("ratingScreen");
-
-    const rating =
-    document.getElementById("rating");
-
-    const message =
-    document.getElementById("message");
 
 
-    video.addEventListener(
-    "ended",
-    function(){
-
-      ratingScreen.style.display=
-      "flex";
+</div>
+<script>
 
 
-      requestAnimationFrame(
-      function(){
-
-        ratingScreen.classList.add(
-        "show"
-        );
-
-      });
+const video =
+document.getElementById("finalVideo");
 
 
-      setTimeout(
-      function(){
-
-        message.innerHTML=
-        "STAI OLEACAAA 🤔";
-
-      },
-      2000
-      );
+const ratingScreen =
+document.getElementById("ratingScreen");
 
 
-      setTimeout(
-      function(){
-
-        message.innerHTML=
-        "Recalculăm nota... ⏳";
-
-      },
-      4000
-      );
+const rating =
+document.getElementById("rating");
 
 
-      setTimeout(
-      function(){
-
-        rating.innerHTML=
-        "∞/10 ❤️";
+const message =
+document.getElementById("message");
 
 
-        rating.classList.add(
-        "finalScore"
-        );
 
 
-        message.innerHTML=
-        "ZAYA, ASTA E NOTA FRUMUSETII TALE ❤️";
 
-<a href="https://t.me/StefLovesMilana">Imi dai un mesaj? </a>
+video.addEventListener(
+"ended",
+function(){
 
-      },
-      6000
-      );
 
-    });
+ratingScreen.style.display =
+"flex";
 
-  </script>
+
+
+requestAnimationFrame(
+function(){
+
+ratingScreen.classList.add(
+"show"
+);
+
+}
+
+);
+
+
+
+
+
+setTimeout(
+function(){
+
+
+message.innerHTML =
+"STAI OLEACAAA 🤔";
+
+
+},
+2000
+);
+
+
+
+
+
+setTimeout(
+function(){
+
+
+message.innerHTML =
+"Recalculăm nota... ⏳";
+
+
+},
+4000
+);
+
+
+
+
+
+setTimeout(
+function(){
+
+
+rating.innerHTML =
+"∞/10 ❤️";
+
+
+rating.classList.add(
+"finalScore"
+);
+
+
+
+
+message.innerHTML =
+
+`
+
+ZAYA, ASTA E NOTA FRUMUSEȚII TALE ❤️
+
+
+<br>
+
+
+<a
+
+id="telegramButton"
+
+href="https://t.me/StefLovesMilana"
+
+>
+
+Îmi dai un mesaj? ❤️
+
+</a>
+
+
+<br><br>
+
+
+
+<button class="answerButton" onclick="answer('NU ITI DAU 😭')">
+
+NU ITI DAU 😭
+
+</button>
+
+
+
+<button class="answerButton" onclick="answer('SI AI AHUIT 😂')">
+
+SI AI AHUIT 😂
+
+</button>
+
+
+
+<button class="answerButton" onclick="answer('ITI DAU ❤️')">
+
+ITI DAU ❤️
+
+</button>
+
+
+`;
+
+
+
+},
+6000
+);
+
+
+}
+
+);
+
+
+
+
+
+
+
+function answer(choice){
+
+
+
+if(choice === "NU ITI DAU 😭"){
+
+
+message.innerHTML =
+
+`
+
+HAHA NU AI SCAPAT 😭❤️
+
+<br>
+
+Nota ramane ∞/10 oricum
+
+<br><br>
+
+<button class="answerButton" onclick="location.reload()">
+
+Mai incearca 😂
+
+</button>
+
+`;
+
+}
+
+
+
+if(choice === "SI AI AHUIT 😂"){
+
+
+message.innerHTML =
+
+`
+
+AM AUZIT 😂❤️
+
+<br>
+
+Dar tot ramai 1000/10
+
+`;
+
+}
+
+
+
+if(choice === "ITI DAU ❤️"){
+
+
+message.innerHTML =
+
+`
+
+RASPUNS CORECT DETECTAT ✅❤️
+
+<br>
+
+Multumesc ZAYA 🥹
+
+`;
+
+}
+
+
+}
+
+
+</script>
+
 
 </body>
+
 </html>
