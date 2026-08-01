@@ -11,11 +11,9 @@
 
 <style>
 
-
 *{
 box-sizing:border-box;
 }
-
 
 
 body{
@@ -41,7 +39,6 @@ overflow:hidden;
 font-family:Arial,sans-serif;
 
 }
-
 
 
 video{
@@ -145,11 +142,7 @@ text-shadow:
 0 0 50px #ff3e96;
 
 
-transition:
-
-transform .5s,
-
-color .5s;
+transition:transform .5s,color .5s;
 
 }
 
@@ -164,30 +157,6 @@ margin-top:20px;
 font-size:clamp(18px,5vw,30px);
 
 color:#ffd0e7;
-
-}
-
-
-
-#telegramButton{
-
-display:inline-block;
-
-margin-top:25px;
-
-padding:15px 30px;
-
-background:#e63d8f;
-
-color:white;
-
-text-decoration:none;
-
-border-radius:30px;
-
-font-size:22px;
-
-box-shadow:0 0 20px #ff3e96;
 
 }
 
@@ -229,7 +198,6 @@ animation:pulse 1s infinite alternate;
 
 @keyframes pulse{
 
-
 from{
 
 transform:scale(1);
@@ -243,35 +211,25 @@ transform:scale(1.2);
 
 }
 
-
 }
-
 
 </style>
 
 </head>
 
 
+
 <body>
-  <video
 
-id="finalVideo"
 
-controls
+<video id="finalVideo" controls playsinline>
 
-playsinline
-
->
-
-<source
-
-src="Forest.mp4"
-
-type="video/mp4"
-
->
+<source src="Forest.mp4" type="video/mp4">
 
 </video>
+
+
+<audio id="yaySound" src="YAY.mp3"></audio>
 
 
 
@@ -319,6 +277,10 @@ const message =
 document.getElementById("message");
 
 
+const yaySound =
+document.getElementById("yaySound");
+
+
 
 
 
@@ -338,7 +300,6 @@ requestAnimationFrame(()=>{
 ratingScreen.classList.add("show");
 
 });
-
 
 
 
@@ -376,7 +337,6 @@ message.innerHTML=
 
 
 
-
 setTimeout(()=>{
 
 
@@ -389,6 +349,14 @@ rating.innerHTML=
 rating.classList.add("finalScore");
 
 
+// PLAY YAY SOUND
+
+yaySound.currentTime = 0;
+
+yaySound.play();
+
+
+
 
 message.innerHTML=
 
@@ -397,20 +365,14 @@ message.innerHTML=
 ZAYA, ASTA E NOTA FRUMUSEȚII TALE ❤️
 
 
-<br>
+<br><br>
 
-
-<a
-
-
->
 
 Îmi dai un mesaj sau iti dau eu?
 
-</a>
-
 
 <br><br>
+
 
 
 <button class="answerButton" onclick="answer('NU ITI DAU 😭')">
@@ -429,7 +391,7 @@ SI AI AHUIT?
 
 <button class="answerButton" onclick="window.location.href='https://t.me/StefLovesMilana'">
 
-ITI DAU EU❤️
+ITI DAU EU ❤️
 
 </button>
 
@@ -456,6 +418,7 @@ ITI DAU EU❤️
 function answer(choice){
 
 
+
 fetch("https://milana06.gujastefan40.workers.dev/", {
 
 method:"POST",
@@ -478,19 +441,18 @@ answer:choice
 
 
 
-
-if(choice==="IMI DAI TU"){
+if(choice==="NU ITI DAU 😭"){
 
 
 message.innerHTML=
 
 `
 
-PONEL PRINEL 😭❤️
+SI AI AHUIT?
 
 <br>
 
-numaidecat iti dau!!!
+(iti dau eu) 😂
 
 `;
 
@@ -498,38 +460,18 @@ numaidecat iti dau!!!
 
 
 
-if(choice==="SI AI AHUIT"){
+if(choice==="SI AI AHUIT "){
 
 
 message.innerHTML=
 
 `
 
-PONEL 😂
+ponel
 
 <br>
 
-(DA AM AHUIT) ∞/10
-
-`;
-
-}
-
-
-
-
-if(choice==="ITI DAU ❤️"){
-
-
-message.innerHTML=
-
-`
-
-RASPUNS CORECT DETECTAT ✅❤️
-
-<br>
-
-Multumesc ZAYA <3
+(DA AM AHUIT)
 
 `;
 
@@ -538,9 +480,11 @@ Multumesc ZAYA <3
 
 
 }
+
 
 
 </script>
+
 
 
 </body>
