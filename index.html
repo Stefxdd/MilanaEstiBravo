@@ -213,10 +213,84 @@ transform:scale(1.2);
 
 }
 
+
+
+/* WRONG ANSWER EFFECT */
+
+
+.errorPopup{
+
+position:fixed;
+
+background:#ff3030;
+
+color:white;
+
+font-size:28px;
+
+font-weight:bold;
+
+padding:15px 25px;
+
+border-radius:15px;
+
+box-shadow:0 0 25px red;
+
+z-index:999;
+
+animation:errorGlitch .7s;
+
+}
+
+
+
+@keyframes errorGlitch{
+
+
+0%{
+
+transform:scale(0) rotate(-15deg);
+
+opacity:0;
+
+}
+
+
+25%{
+
+transform:scale(1.3) rotate(10deg);
+
+}
+
+
+50%{
+
+transform:translateX(-15px);
+
+}
+
+
+75%{
+
+transform:translateX(15px);
+
+}
+
+
+100%{
+
+transform:scale(1) rotate(0);
+
+opacity:1;
+
+}
+
+}
+
+
 </style>
 
 </head>
-
 
 
 <body>
@@ -337,6 +411,7 @@ message.innerHTML=
 
 
 
+
 setTimeout(()=>{
 
 
@@ -349,7 +424,7 @@ rating.innerHTML=
 rating.classList.add("finalScore");
 
 
-// PLAY YAY SOUND
+// YAY SOUND
 
 yaySound.currentTime = 0;
 
@@ -440,51 +515,43 @@ answer:choice
 
 
 
+// ERROR POPUP
 
-if(choice==="NU ITI DAU 😭"){
+let error=document.createElement("div");
 
 
-message.innerHTML=
+error.className="errorPopup";
 
-`
 
-SI AI AHUIT?
-
-<br>
-
-(iti dau eu) 😂
-
-`;
-
-}
+error.innerHTML="RASPUNS GRESIT ❌";
 
 
 
-if(choice==="SI AI AHUIT "){
+error.style.left =
+Math.random()*70 + "vw";
 
 
-message.innerHTML=
+error.style.top =
+Math.random()*70 + "vh";
 
-`
 
-ponel
 
-<br>
+document.body.appendChild(error);
 
-(DA AM AHUIT)
 
-`;
 
-}
+setTimeout(()=>{
+
+error.remove();
+
+},1500);
 
 
 
 }
-
 
 
 </script>
-
 
 
 </body>
