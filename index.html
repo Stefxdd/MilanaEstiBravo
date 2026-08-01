@@ -1,28 +1,250 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ESTI CEA MAI BRAVO ❤️</title>
+
+  <style>
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background-image:url('IMG_9350.jpg');
+      background-size:180px;
+      background-repeat:repeat;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      font-family:Arial,sans-serif;
+    }
+
+    video{
+      width:90%;
+      max-width:700px;
+      border-radius:15px;
+      box-shadow:0 0 30px rgba(255,80,160,.8);
+    }
+
+    #ratingScreen{
+      position:fixed;
+      inset:0;
+
+      display:none;
+
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+
+      text-align:center;
+
+      color:white;
+
+      background:
+      radial-gradient(
+        circle at top,
+        #5f1b75,
+        #08030d 75%
+      );
+
+      z-index:100;
+
+      opacity:0;
+
+      transition:opacity 1s ease;
+    }
+
+    #ratingScreen.show{
+      display:flex;
+      opacity:1;
+    }
+
+    #ratingTitle{
+      margin:0 0 20px;
+
+      color:#ff9acc;
+
+      font-size:clamp(30px,8vw,60px);
+
+      text-shadow:
+      0 0 15px #ff3e96,
+      0 0 30px #ff3e96;
+    }
+
+    #rating{
+      font-size:clamp(60px,20vw,150px);
+
+      font-weight:bold;
+
+      color:#ff4e9d;
+
+      text-shadow:
+      0 0 20px #ff3e96,
+      0 0 50px #ff3e96;
+
+      transition:
+      transform .5s,
+      color .5s;
+    }
+
+    #message{
+      min-height:35px;
+
+      margin-top:20px;
+
+      font-size:clamp(18px,5vw,30px);
+
+      color:#ffd0e7;
+    }
+
+    .finalScore{
+      color:#ffcf4d !important;
+
+      transform:scale(1.15);
+
+      animation:pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse{
+
+      from{
+        transform:scale(1);
+      }
+
+      to{
+        transform:scale(1.2);
+      }
+
+    }
+
+  </style>
+
 </head>
 
-<body style="
-  margin:0;
-  min-height:100vh;
-  background-image:url('IMG_9350.jpg');
-  background-size:180px;
-  background-repeat:repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-">
+<body>
 
-  <video controls playsinline style="
-    width:90%;
-    max-width:700px;
-    border-radius:15px;
-  ">
-    <source src="Forest.mp4" type="video/mp4">
+<video
+id="finalVideo"
+controls
+playsinline
+
+>
+
+```
+<source
+  src="Forest.mp4"
+  type="video/mp4"
+>
+```
+
   </video>
+
+  <div id="ratingScreen">
+
+```
+<h1 id="ratingTitle">
+
+  NOTA FINALĂ 😭
+
+</h1>
+
+
+<div id="rating">
+
+  0/10
+
+</div>
+
+
+<div id="message">
+
+</div>
+```
+
+  </div>
+
+  <script>
+
+    const video =
+    document.getElementById("finalVideo");
+
+    const ratingScreen =
+    document.getElementById("ratingScreen");
+
+    const rating =
+    document.getElementById("rating");
+
+    const message =
+    document.getElementById("message");
+
+
+    video.addEventListener(
+    "ended",
+    function(){
+
+      ratingScreen.style.display=
+      "flex";
+
+
+      requestAnimationFrame(
+      function(){
+
+        ratingScreen.classList.add(
+        "show"
+        );
+
+      });
+
+
+      setTimeout(
+      function(){
+
+        message.innerHTML=
+        "Stai... ceva nu pare corect 🤔";
+
+      },
+      2000
+      );
+
+
+      setTimeout(
+      function(){
+
+        message.innerHTML=
+        "Recalculăm nota... ⏳";
+
+      },
+      4000
+      );
+
+
+      setTimeout(
+      function(){
+
+        rating.innerHTML=
+        "∞/10 ❤️";
+
+
+        rating.classList.add(
+        "finalScore"
+        );
+
+
+        message.innerHTML=
+        "ZAYA, ești imposibil de notat 🥹❤️";
+
+      },
+      6000
+      );
+
+    });
+
+  </script>
 
 </body>
 </html>
