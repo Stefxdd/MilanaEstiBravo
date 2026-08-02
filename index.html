@@ -356,6 +356,22 @@ document.getElementById("yaySound");
 
 
 
+// UNLOCK AUDIO FOR PHONE
+
+video.addEventListener("play", ()=>{
+
+yaySound.play().then(()=>{
+
+yaySound.pause();
+
+yaySound.currentTime = 0;
+
+}).catch(()=>{});
+
+});
+
+
+
 
 
 video.addEventListener(
@@ -411,7 +427,6 @@ message.innerHTML=
 
 
 
-
 setTimeout(()=>{
 
 
@@ -424,11 +439,13 @@ rating.innerHTML=
 rating.classList.add("finalScore");
 
 
-// YAY SOUND
+
+// PLAY YAY SOUND
 
 yaySound.currentTime = 0;
 
-yaySound.play();
+
+yaySound.play().catch(()=>{});
 
 
 
@@ -451,15 +468,19 @@ ZAYA, ASTA E NOTA FRUMUSEȚII TALE ❤️
 
 
 <button class="answerButton" onclick="wrongAnswer1()">
+
 IMI DAI TU
+
 </button>
 
 
-<button class="answerButton" onclick="answer('SI AI AHUIT? ')">
+
+<button class="answerButton" onclick="answer('SI AI AHUIT?')">
 
 SI AI AHUIT?
 
 </button>
+
 
 
 <button class="answerButton" onclick="window.location.href='https://t.me/StefLovesMilana'">
@@ -478,29 +499,38 @@ ITI DAU EU ❤️
 
 
 }
-
-
   
 );
 
+
+
+
+
 function wrongAnswer1(){
+
 
 let error=document.createElement("div");
 
+
 error.className="errorPopup";
 
-error.innerHTML="IACA NA";
+
+error.innerHTML="NU TE CRED ❌😂";
+
 
 
 error.style.left =
 Math.random()*70 + "vw";
 
 
+
 error.style.top =
 Math.random()*70 + "vh";
 
 
+
 document.body.appendChild(error);
+
 
 
 setTimeout(()=>{
@@ -509,23 +539,8 @@ error.remove();
 
 },1500);
 
-}
-
-
-
-
-
-function answer(choice){
-
-// your existing answer code here
 
 }
-
-
-
-
-
-
 function answer(choice){
 
 
@@ -551,23 +566,24 @@ answer:choice
 
 
 
-// ERROR POPUP
-
 let error=document.createElement("div");
 
 
 error.className="errorPopup";
 
 
-error.innerHTML="TU AI AHUIT";
+error.innerHTML="TU AI AHUIT 😂";
 
 
 
 error.style.left =
+
 Math.random()*70 + "vw";
 
 
+
 error.style.top =
+
 Math.random()*70 + "vh";
 
 
@@ -585,6 +601,7 @@ error.remove();
 
 
 }
+
 
 
 </script>
