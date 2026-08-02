@@ -450,14 +450,12 @@ ZAYA, ASTA E NOTA FRUMUSEȚII TALE ❤️
 
 
 
-<button class="answerButton" onclick="answer('NU ITI DAU 😭')">
-
+<button class="answerButton" onclick="wrongAnswer1()">
 IMI DAI TU
-
 </button>
 
 
-<button class="answerButton" onclick="answer('SI AI AHUIT 😂')">
+<button class="answerButton" onclick="answer('SI AI AHUIT? ')">
 
 SI AI AHUIT?
 
@@ -481,9 +479,47 @@ ITI DAU EU ❤️
 
 }
 
+
+  
 );
 
+function wrongAnswer1(){
 
+let error=document.createElement("div");
+
+error.className="errorPopup";
+
+error.innerHTML="NU TE CRED ❌😂";
+
+
+error.style.left =
+Math.random()*70 + "vw";
+
+
+error.style.top =
+Math.random()*70 + "vh";
+
+
+document.body.appendChild(error);
+
+
+setTimeout(()=>{
+
+error.remove();
+
+},1500);
+
+}
+
+
+
+
+
+function answer(choice){
+
+// your existing answer code here
+
+}
 
 
 
@@ -523,7 +559,7 @@ let error=document.createElement("div");
 error.className="errorPopup";
 
 
-error.innerHTML="RASPUNS GRESIT ❌";
+error.innerHTML="TU AI AHUIT";
 
 
 
